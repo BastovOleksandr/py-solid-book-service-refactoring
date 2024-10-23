@@ -1,3 +1,4 @@
+from app.serializers import Serializer
 from app.utils import get_display_type, get_printer, get_serializer
 
 
@@ -19,19 +20,19 @@ class Entity:
         return self._content
 
     @content.setter
-    def content(self, content) -> None:
+    def content(self, content: str) -> None:
         self._content = content
 
-    def get_entity_name(self):
+    def get_entity_name(self) -> str:
         return self.__class__.__name__.lower()
 
 
 class Book(Entity):
-    def __init__(self, title: str, content: str):
+    def __init__(self, title: str, content: str) -> None:
         super().__init__(title, content)
 
 
-def main(book: Book, commands: list[tuple[str, str]]):
+def main(book: Book, commands: list[tuple[str, str]]) -> None | str:
     for command, method_type in commands:
         if command == "display":
             display = get_display_type(method_type)
