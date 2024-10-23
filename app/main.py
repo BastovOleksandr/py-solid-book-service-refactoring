@@ -1,4 +1,3 @@
-from app.serializers import Serializer
 from app.utils import get_display_type, get_printer, get_serializer
 
 
